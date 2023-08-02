@@ -16,13 +16,6 @@ class ViewController: UIViewController {
     
     var leftDiceNumber = 1
     var rightDiceNumber = 2
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-        
-    }
 
     @IBAction func rollButtonPressed(_ sender: UIButton) {
         diceImageView1.image = [UIImage(imageLiteralResourceName: "DiceOne"),
