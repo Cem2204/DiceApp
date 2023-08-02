@@ -14,19 +14,43 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var diceImageView2: UIImageView!
     
+    var leftDiceNumber = 1
+    var rightDiceNumber = 2
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        diceImageView1.image = UIImage(imageLiteralResourceName: "DiceSix")
-        diceImageView1.alpha = 1
         
-        diceImageView2.image = UIImage(imageLiteralResourceName: "DiceTwo")
         
     }
 
     @IBAction func rollButtonPressed(_ sender: UIButton) {
-        diceImageView1.image = UIImage(imageLiteralResourceName: "DiceFour")
-        diceImageView2.image = UIImage(imageLiteralResourceName: "DiceFour")
+        diceImageView1.image = [UIImage(imageLiteralResourceName: "DiceOne"),
+         UIImage(imageLiteralResourceName: "DiceTwo"),
+         UIImage(imageLiteralResourceName: "DiceThree"),
+         UIImage(imageLiteralResourceName: "DiceFour"),
+         UIImage(imageLiteralResourceName: "DiceFive"),
+         UIImage(imageLiteralResourceName: "DiceSix")][leftDiceNumber]
+        
+        if(leftDiceNumber == 5){
+            leftDiceNumber = 0
+        }
+        else{
+            leftDiceNumber += 1
+        }
+        diceImageView2.image = [UIImage(imageLiteralResourceName: "DiceOne"),
+                                UIImage(imageLiteralResourceName: "DiceTwo"),
+                                UIImage(imageLiteralResourceName: "DiceThree"),
+                                UIImage(imageLiteralResourceName: "DiceFour"),
+                                UIImage(imageLiteralResourceName: "DiceFive"),
+                                UIImage(imageLiteralResourceName: "DiceSix")] [rightDiceNumber]
+        if(rightDiceNumber == 0){
+            rightDiceNumber = 5
+        }
+        else{
+            rightDiceNumber -= 1
+        }
+        
     }
     
 }
